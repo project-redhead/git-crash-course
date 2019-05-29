@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="JavaScript"></script>
+    <link href="Style" rel="stylesheet" />
+
+</head>
+<body style="overflow-wrap: break-word;" onload="hasUserPendingApprovalRequesthtml();">
+
+    <!-- First Stage -->
+    <div id="Approval_Request">
+        <p class="header"> Please approve the Process </p>
+        <p id="DueDate" class="due_date"></p>
+        <p class="description">
+            <textarea id="Description" name="description" readonly></textarea>
+        </p>
+        <div_button_container>
+            <button class="approve" onclick="approve()"><img src="../Icons/approval_16.png" alt=""/>  Approve</button>
+            <button class="reject" onclick="reject()"><img src="../Icons/rejection_16.png" alt=""/>  Reject</button>
+        </div_button_container>
+    </div>
+
+    <!-- Second Stage (after approval) -->
+    <div id="AR_Approved">
+        <p class="Comment">
+            <textarea id="Comment_Approved" placeholder="Comment (maximum 1000 characters)" maxlength="1000"></textarea>
+        </p>
+        <div_button_container>
+            <button id="OK_Approved" class="approve" onclick="ok_approved()"><img src="../Icons/approval_16.png" alt=""/>  Accept</button>
+            <button id="Cancel" class="reject" onclick="cancel()"><img src="../Icons/rejection_16.png" alt=""/>  Cancel</button>
+        </div_button_container>
+
+    </div>
+
+    <!--  Second Stage (after rejection) -->
+    <div id="AR_Rejected">
+        <p class="Comment">
+            <textarea id="Comment_Rejected" placeholder="Comment (maximum 1000 characters)" maxlength="1000" oninput="enable_ok_rejected()"></textarea>
+        </p>
+        <div_button_container>
+            <button id="OK_Rejected" onclick="ok_rejected()" disabled><img src="../Icons/approval_16.png" alt=""/>  Accept</button>
+            <button id="Cancel" onclick="cancel()"><img src="../Icons/rejection_16.png" alt=""/>  Cancel</button>
+        </div_button_container>
+    </div>
+
+    <!-- Third Stage -->
+    <div id="Finished">
+        <p2 id="Comment_Finished" readonly>
+            <p id="Comment_Finished1" class="Comment_Finished"></p>
+            <p id="Comment_Finished2" class="Comment_Finished"></p>
+            <p id="Comment_Finished3" class="Comment_Finished"></p>
+        </p2>
+    </div>
+
+</body>
+</html>
